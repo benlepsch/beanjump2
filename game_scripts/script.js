@@ -53,7 +53,7 @@ function runGame() {
     if (game.running) {
       game.draw();
     } else {
-      game.draw();
+      // game.draw();
       menu.draw();
     }
   }

@@ -1,8 +1,11 @@
+const { createContext } = require("react");
+
 class Menu {
     constructor(gameObject) {
       this.game = gameObject;
       this.recentScore = 0;
   
+      this.src = 'game_images/menu.png'
       // define positions of buttons + shit
     }
   
@@ -24,6 +27,6 @@ class Menu {
   
     // render menu
     draw() {
-  
+      ctx.drawImage(this.src, 0, 0);
     }
   }
