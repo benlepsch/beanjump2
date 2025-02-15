@@ -38,8 +38,10 @@ function startGame(fps) {
   runGame();
 }
 
+let debug = false;
 function runGame() {
-  requestAnimationFrame(runGame);
+  if (!debug) requestAnimationFrame(runGame);
+  
   now = Date.now();
   elapsed = now - then;
 
