@@ -1,5 +1,3 @@
-const { createContext } = require("react");
-
 class Menu {
     constructor(gameObject) {
       this.game = gameObject;
