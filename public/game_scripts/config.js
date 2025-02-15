@@ -1,6 +1,8 @@
 /* Values that I want to be able to change easily */
 
 const GAME_FPS = 1;
+const CANVAS_WIDTH = 800;
+const CANVAS_HEIGHT = 500;
 
 /* default keybinds */
 // ideally i'm allowing these to be changed + storing in cookie

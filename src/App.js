@@ -3,8 +3,7 @@ import './App.css';
 
 function App() {
   return (
-    <div id='game_board'>
-      <canvas id='game_canvas'></canvas>
+    <div>
     </div>
   );
 }

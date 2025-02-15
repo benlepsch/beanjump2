@@ -8,18 +8,15 @@
 
 
 /********** "Global" Variables ***********/
-// run the loop when the window loads
-window.onload = () => {
-    const canvas = document.getElementById('game_canvas');
-    const ctx = canvas.getContext('2d');
+const canvas = document.getElementById('game_canvas');
+canvas.width = CANVAS_WIDTH;
+canvas.height = CANVAS_HEIGHT;
 
-    /****** Variables ******/
-    const game = new Game();
-    const menu = new Menu(game);
-    
-    startGame(GAME_FPS, canvas, ctx, game, menu);
-}
+const ctx = canvas.getContext('2d');
 
+/****** Variables ******/
+const game = new Game(CANVAS_WIDTH, CANVAS_HEIGHT);
+const menu = new Menu(game);
 
 /********** Event Listeners ***********/
 window.onclick = (e) => {
@@ -33,15 +30,15 @@ window.onkeydown = (e) => {
 
 /********** Main Loop ***********/
 let fpsInterval, then, startTime, elapsed;
-function startGame(fps, canvas, ctx, game, menu) {
+function startGame(fps) {
   fpsInterval = 1000 / fps;
   then = Date.now();
   startTime = then;
 
-  runGame(canvas, ctx, game, menu);
+  runGame();
 }
 
-function runGame(canvas, ctx, game, menu) {
+function runGame() {
   requestAnimationFrame(runGame);
   now = Date.now();
   elapsed = now - then;
@@ -60,4 +57,10 @@ function runGame(canvas, ctx, game, menu) {
       menu.draw();
     }
   }
+}
+
+
+// run the loop when the window loads
+window.onload = () => {    
+    startGame(GAME_FPS);
 }
