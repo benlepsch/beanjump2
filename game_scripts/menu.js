@@ -1,3 +1,12 @@
+/**
+ * Menu object
+ *  checks for buttons being clicked & updates accordingly
+ * 
+ * Button object
+ *  basically just a wrapper for the coordinates of each button
+ *  plus a function to highlight the button on mouseover
+ */
+
 class Menu {
   constructor(gameObject) {
     this.game = gameObject;
@@ -58,6 +67,6 @@ class Button {
   }
 
   highlight() {
-    // highlight button on mouseover
+    // todo: highlight button on mouseover
   }
 }

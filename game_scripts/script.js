@@ -7,16 +7,16 @@
 
 
 
-/********** "Global" Variables ***********/
+/********** Global Variables ***********/
 const canvas = document.getElementById('game_canvas');
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 
 const ctx = canvas.getContext('2d');
 
-/****** Variables ******/
 const game = new Game(canvas, ctx);
 const menu = new Menu(game);
+
 
 /********** Event Listeners ***********/
 window.onclick = (e) => {
@@ -34,6 +34,12 @@ window.onmousemove = (e) => {
   menu.mouseX = e.clientX - canvas.offsetLeft;
   menu.mouseY = e.clientY - canvas.offsetTop;
 }
+
+// run the main loop when the window loads
+window.onload = () => {    
+  startGame(GAME_FPS);
+}
+
 
 /********** Main Loop ***********/
 let fpsInterval, then, startTime, elapsed;
@@ -65,10 +71,4 @@ function runGame() {
       menu.draw();
     }
   }
-}
-
-
-// run the loop when the window loads
-window.onload = () => {    
-    startGame(GAME_FPS);
 }
