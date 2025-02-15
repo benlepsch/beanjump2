@@ -3,6 +3,9 @@ class Menu {
     this.game = gameObject;
     this.recentScore = 0;
 
+    this.mouseX = 0;
+    this.mouseY = 0;
+
     this.img = new Image;
     this.img.src = 'game_images/menu.png'
 
@@ -11,11 +14,11 @@ class Menu {
   }
 
   // check if a mouseclick is on a menu item
-  checkClick(x, y) {
+  checkClick() {
     // ignore if the game is running
     if (this.game.running) return;
 
-    if (this.play_button.clicked(x, y)) {
+    if (this.play_button.mouseOver(this.mouseX, this.mouseY)) {
       this.game.running = true;
     }
   }
@@ -32,7 +35,13 @@ class Menu {
 
   // render menu
   draw() {
+    // draw background image
     this.game.ctx.drawImage(this.img, 0, 0);
+
+    // highlight buttons if the mouse is over them
+    if (this.play_button.mouseOver(this.mouseX, this.mouseY)) {
+      this.play_button.highlight();
+    }
   }
 }
 
@@ -44,7 +53,11 @@ class Button {
     this.bot = bot;
   }
 
-  clicked(m_x, m_y) {
+  mouseOver(m_x, m_y) {
     return (m_x > this.left) && (m_x < this.right) && (m_y > this.top) && (m_y < this.bot);
+  }
+
+  highlight() {
+    // highlight button on mouseover
   }
 }

@@ -20,13 +20,20 @@ const menu = new Menu(game);
 
 /********** Event Listeners ***********/
 window.onclick = (e) => {
-  menu.checkClick(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+  menu.checkClick();
 };
 
 window.onkeydown = (e) => {
   // eventually i'll want to handle rebinding keys in the menu too
   if (game.running) game.checkKeys(e.keyCode ? e.keyCode : e.which);
 };
+
+window.onmousemove = (e) => {
+  if (game.running) return;
+
+  menu.mouseX = e.clientX - canvas.offsetLeft;
+  menu.mouseY = e.clientY - canvas.offsetTop;
+}
 
 /********** Main Loop ***********/
 let fpsInterval, then, startTime, elapsed;
