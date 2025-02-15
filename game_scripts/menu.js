@@ -3,7 +3,8 @@ class Menu {
       this.game = gameObject;
       this.recentScore = 0;
   
-      this.src = 'game_images/menu.png'
+      this.img = new Image;
+      this.img.src = 'game_images/menu.png'
       // define positions of buttons + shit
     }
   
@@ -25,6 +26,6 @@ class Menu {
   
     // render menu
     draw() {
-      ctx.drawImage(this.src, 0, 0);
+      ctx.drawImage(this.img, 0, 0);
     }
   }
