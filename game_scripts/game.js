@@ -1,3 +1,6 @@
+/**
+ * Game object
+ */
 class Game {
   constructor(canvas, ctx) {
     this.canvas = canvas;

@@ -25,7 +25,12 @@ window.onclick = (e) => {
 
 window.onkeydown = (e) => {
   // eventually i'll want to handle rebinding keys in the menu too
-  if (game.running) game.checkKeys(e.keyCode ? e.keyCode : e.which);
+  if (game.running) game.player.keyDown(e.keyCode ? e.keyCode : e.which);
+};
+
+window.onkeyup = (e) => {
+  // eventually i'll want to handle rebinding keys in the menu too
+  if (game.running) game.player.keyUp(e.keyCode ? e.keyCode : e.which);
 };
 
 window.onmousemove = (e) => {
