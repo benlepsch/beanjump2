@@ -68,6 +68,7 @@ class Player {
      * Jump logic
      * Collision detection with live enemies
      * Update score + chain
+     * Draw the player
      * 
      * @returns null
      */
@@ -103,6 +104,8 @@ class Player {
 
         // check if the player can jump
 
+        // render player 
+        this.draw();
     }
 
     
