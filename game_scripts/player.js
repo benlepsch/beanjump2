@@ -82,7 +82,7 @@ class Player {
             this.accelX += PLAYER_ACCEL_X;
         }
 
-        if (this.keys[KEY_UP] && this.jumpable) {
+        if (this.keys[KEY_JUMP] && this.jumpable) {
             this.accelY -= PLAYER_ACCEL_JUMP;
             this.jumpable = false;
         }
