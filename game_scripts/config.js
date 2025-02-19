@@ -4,25 +4,27 @@
  * Background image settings
  * Player movement 
  * Enemy spawning + movement
+ * 
+ * Global helper functions
  */
 
 
 
-const GAME_FPS = 1;
+const GAME_FPS = 60;
 
 
 /******** Background Setting ********/
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 500;
 const GROUND_HEIGHT_RATIO = 0.76;
+const GROUND_SLIPPAGE = 5; // drop sprites this many pixels below ground level when drawing
 
 /******** Player Miscellaneous Stuff ********/
 const PLAYER_IMG = document.getElementById('player_img');
 const PLAYER_IMG_WIDTH = 50;
 const PLAYER_IMG_HEIGHT = 50;
 
-// PLAYER_IMG.style.width = PLAYER_IMG_WIDTH + 'px';
-// PLAYER_IMG.style.height = PLAYER_IMG_HEIGHT + 'px';
+const PLAYER_MAX_CHAIN = 30;
 
 /******** Default Keybinds ********/
 // ideally i'm allowing these to be changed + storing in cookie
@@ -33,11 +35,42 @@ const KEY_DOWN = 83;      // s
 const KEY_PAUSE = 32;     // space
 
 /******** Player Movement ********/
-const PLAYER_ACCEL_X = 0;
-const PLAYER_MAX_VEL_X = 0;
-const PLAYER_ACCEL_JUMP = 0;
-const PLAYER_GRAVITY = 0;
-const PLAYER_TERMINAL_VELOCITY = 0;
+const PLAYER_ACCEL_X = 10;
+const PLAYER_MAX_VEL_X = 25;
+const PLAYER_MAX_VEL_Y = 20;
+const PLAYER_ACCEL_JUMP = 60;
+const PLAYER_GRAVITY = 1.5;
 const PLAYER_DOUBLE_JUMP = false;
 
 /******** Enemy spawning + movement ********/
+
+/******** Helper Functions ********/
+
+/**
+ * Constrain a value within a range
+ * 
+ * @param {number} val 
+ * @param {number} min 
+ * @param {number} max 
+ * @returns number between min and max
+ */
+function constrain(val, min, max) {
+    if (typeof(val) != 'number') {
+        console.log('error: val must be a number');
+        return -1;
+    }
+
+    if (typeof(min) != 'number') {
+        console.log('error: min must be a number');
+        return -1;
+    }
+
+    if (typeof(max) != 'number') {
+        console.log('error: max must be a number');
+        return -1;
+    }
+
+    if (val > max) return max;
+    if (val < min) return min;
+    return val;
+}

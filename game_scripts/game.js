@@ -1,3 +1,6 @@
+/**
+ * Game object
+ */
 class Game {
   constructor(canvas, ctx) {
     this.canvas = canvas;
@@ -22,8 +25,9 @@ class Game {
   update() {
     // check spawn timers
 
-    // position update for existing objects
-  
+    // call updates for existing objects
+    this.player.update();
+
     // draw
     this.draw();
   }
