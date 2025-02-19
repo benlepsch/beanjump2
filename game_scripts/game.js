@@ -4,20 +4,15 @@ class Game {
     this.ctx = ctx;
 
     this.running = false;
-    this.score = 0;
-    this.keys = [];
+    this.player = null;
     
     this.ground_height = parseInt(this.canvas.clientHeight * GROUND_HEIGHT_RATIO);
   }
-
-  // checks for player movement
-  checkKeys(keyCode) {
-    if (!this.running) return;
-
-  }
-
+  
   // start the game
-  start() { }
+  start() {
+    this.player = new Player(this, this.canvas, this.ctx);
+  }
 
   // clean up + send the score to the menu screen
   end() { }
@@ -36,5 +31,12 @@ class Game {
 
     this.ctx.fillStyle = '#19e03a';
     this.ctx.fillRect(0, this.ground_height, this.canvas.clientWidth, this.canvas.clientHeight - this.ground_height);
+
+    // draw the background
+
+    // draw enemies
+
+    // draw player 
+    this.player.draw();
   }
 }

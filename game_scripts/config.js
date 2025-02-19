@@ -9,8 +9,17 @@
 
 
 const GAME_FPS = 1;
+
+
+/******** Background Setting ********/
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 500;
+const GROUND_HEIGHT_RATIO = 0.76;
+
+/******** Player Miscellaneous Stuff ********/
+const PLAYER_IMG_SRC = 'game_images/bean.png';
+const PLAYER_IMG_WIDTH = 50;
+const PLAYER_IMG_HEIGHT = 50;
 
 /******** Default Keybinds ********/
 // ideally i'm allowing these to be changed + storing in cookie
@@ -19,9 +28,6 @@ const KEY_RIGHT = 68;     // d
 const KEY_JUMP = 87;      // w
 const KEY_DOWN = 83;      // s
 const KEY_PAUSE = 32;     // space
-
-/******** Background Setting ********/
-const GROUND_HEIGHT_RATIO = 0.76;
 
 /******** Player Movement ********/
 const PLAYER_ACCEL_X = 0;
