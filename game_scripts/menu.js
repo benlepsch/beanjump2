@@ -28,13 +28,8 @@ class Menu {
     if (this.game.running) return;
 
     if (this.play_button.mouseOver(this.mouseX, this.mouseY)) {
-      this.game.running = true;
+      this.game.start();
     }
-  }
-
-  // start the game
-  startGame() {
-
   }
 
   // todo: set up a server
