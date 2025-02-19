@@ -66,7 +66,7 @@ function runGame() {
 
     // if game is running, draw game
     if (game.running) {
-      game.draw();
+      game.update();
     } else {
       menu.draw();
     }

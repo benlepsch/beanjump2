@@ -11,14 +11,22 @@ class Game {
   
   // start the game
   start() {
+    this.running = true;
     this.player = new Player(this, this.canvas, this.ctx);
   }
 
   // clean up + send the score to the menu screen
   end() { }
 
-  // update positions of everything
-  update() { }
+  // update positions of everything & draw frame
+  update() {
+    // check spawn timers
+
+    // position update for existing objects
+  
+    // draw
+    this.draw();
+  }
 
   // render game
   draw() {
