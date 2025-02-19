@@ -103,7 +103,10 @@ class Player {
         this.y = constrain(this.y + this.velY, 0, this.base_y);
 
         // check if the player can jump
-
+        if (this.y == this.base_y) {
+            this.jumpable = true;
+        }
+        
         // render player 
         this.draw();
     }
