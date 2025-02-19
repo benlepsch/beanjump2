@@ -100,7 +100,7 @@ class Player {
 
         // update player position
         this.x = constrain(this.x + this.velX, 0, CANVAS_WIDTH - this.width);
-        this.y = constrain(this.y + this.accelY, 0, this.base_y);
+        this.y = constrain(this.y + this.velY, 0, this.base_y);
 
         // check if the player can jump
 
