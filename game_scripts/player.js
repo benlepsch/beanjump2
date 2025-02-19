@@ -7,7 +7,7 @@
 
 class Player {
     constructor(gameObject, canvas, ctx) {
-        this.src = PLAYER_IMG_SRC;
+        this.src = PLAYER_IMG;
         this.width = PLAYER_IMG_WIDTH;
         this.height = PLAYER_IMG_HEIGHT;
         this.x = 0;

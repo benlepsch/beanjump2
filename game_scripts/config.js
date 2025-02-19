@@ -17,9 +17,12 @@ const CANVAS_HEIGHT = 500;
 const GROUND_HEIGHT_RATIO = 0.76;
 
 /******** Player Miscellaneous Stuff ********/
-const PLAYER_IMG_SRC = 'game_images/bean.png';
+const PLAYER_IMG = document.getElementById('player_img');
 const PLAYER_IMG_WIDTH = 50;
 const PLAYER_IMG_HEIGHT = 50;
+
+// PLAYER_IMG.style.width = PLAYER_IMG_WIDTH + 'px';
+// PLAYER_IMG.style.height = PLAYER_IMG_HEIGHT + 'px';
 
 /******** Default Keybinds ********/
 // ideally i'm allowing these to be changed + storing in cookie
