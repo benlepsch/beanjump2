@@ -7,21 +7,21 @@
 
 class Player {
     constructor(gameObject, canvas, ctx) {
-        this.src = PLAYER_IMG_SRC;
+        this.game = gameObject;
+        this.canvas = canvas;
+        this.ctx = ctx;
+
+        this.src = PLAYER_IMG;
         this.width = PLAYER_IMG_WIDTH;
         this.height = PLAYER_IMG_HEIGHT;
-        this.x = 0;
-        this.y = 0;
 
         this.score = 0;
         this.keys = [];
-
-        this.game = gameObject;
-
-        this.canvas = canvas;
-        this.ctx = ctx;
+        
+        this.x = 0;
+        this.y = this.game.ground_height - this.height;
     }
-
+    
     // checks for player movement
     checkKeys(keyCode) {
         if (!this.game.running) return;
@@ -30,7 +30,6 @@ class Player {
 
     // draw the player model
     draw() {
-        this.y = this.game.ground_height + this.height;
         this.ctx.drawImage(this.src, this.x, this.y, this.width, this.height);
     }
 }
