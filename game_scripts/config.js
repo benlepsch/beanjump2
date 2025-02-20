@@ -97,12 +97,26 @@ function colliding(obj1, obj2) {
     let right2 = obj2.x + obj2.width;
 
     // obj1 on top
-    if ((obj1.bot > obj2.top) && ((obj1.left < obj2.right) || (obj1.right > obj2.left))) {
+    if (((bot1 > top2) && (bot1 < bot2)) &&
+        (((right1 > left2) && (right1 < right2)) || ((left1 > left2) && (left1 < right2)))) {
         return true;
     }
-    
+
     // obj2 on top
-    if ((obj2.bot > obj1.top) && ((obj2.left < obj1.right) || (obj2.right > obj1.left))) {
+    if (((bot2 > top1) && (bot2 < bot1)) &&
+        (((right2 > left1) && (right2 < right1)) || ((left2 > left1) && (left2 < right1)))) {
+        return true;
+    }
+
+    // obj1 on the left
+    if (((left1 > left2) && (left1 < right2)) &&
+        (((top1 > top2) && (top1 < bot2)) || ((bot1 > top2) && (bot1 < bot2)))) {
+        return true;
+    }
+
+    // obj2 on the left
+    if (((left2 > left1) && (left2 < right1)) &&
+        (((top2 > top1) && (top2 < bot1)) || ((bot2 > top1) && (bot2 < bot1)))) {
         return true;
     }
 }
