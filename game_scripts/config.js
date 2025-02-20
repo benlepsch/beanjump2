@@ -24,7 +24,7 @@ const PLAYER_IMG = document.getElementById('player_img');
 const PLAYER_IMG_WIDTH = 50;
 const PLAYER_IMG_HEIGHT = 40;
 
-const PLAYER_COLLISION_SLIPPAGE = 10;
+const PLAYER_COLLISION_SLIPPAGE = 1.5*PLAYER_MAX_VEL_Y;
 const PLAYER_MAX_CHAIN = 30;
 
 /******** Default Keybinds ********/

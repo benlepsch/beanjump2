@@ -39,7 +39,8 @@ class Game {
         console.log('collision with ' + e);
 
         // if player is mostly above the enemy + moving down, it's a win
-        if ((this.player.y + this.player.height < e.y + PLAYER_COLLISION_SLIPPAGE) && (this.player.velY > 0)) {
+        let player_bottom = this.player.y + this.player.height;
+        if ((player_bottom + PLAYER_COLLISION_SLIPPAGE > e.y) && (player_bottom < e.y + e.height) && (this.player.velY > 0)) {
           console.log('player wins it');
         } else {
           console.log('player loses it');
