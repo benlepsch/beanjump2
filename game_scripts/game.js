@@ -8,6 +8,7 @@ class Game {
 
     this.running = false;
     this.player = null;
+    this.em = null;
     
     this.ground_height = GROUND_HEIGHT;
   }
@@ -16,6 +17,7 @@ class Game {
   start() {
     this.running = true;
     this.player = new Player(this, this.canvas, this.ctx);
+    this.em = new EnemyManager(this.canvas, this.ctx);
   }
 
   // clean up + send the score to the menu screen
@@ -23,12 +25,13 @@ class Game {
 
   // update positions of everything & draw frame
   update() {
-    // check spawn timers
-
     // call updates for existing objects
     this.player.update();
 
-    // draw
+    // EnemyManager update checks for spawn timer
+    this.em.update();
+
+    // draw the next frame
     this.draw();
   }
 
@@ -47,6 +50,7 @@ class Game {
     // draw the background
 
     // draw enemies
+    this.em.draw();
 
     // draw player 
     this.player.draw();
