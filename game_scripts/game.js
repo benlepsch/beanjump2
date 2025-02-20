@@ -9,7 +9,7 @@ class Game {
     this.running = false;
     this.player = null;
     
-    this.ground_height = parseInt(this.canvas.clientHeight * GROUND_HEIGHT_RATIO);
+    this.ground_height = GROUND_HEIGHT;
   }
   
   // start the game

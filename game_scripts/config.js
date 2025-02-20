@@ -16,7 +16,7 @@ const GAME_FPS = 60;
 /******** Background Setting ********/
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 500;
-const GROUND_HEIGHT_RATIO = 0.76;
+const GROUND_HEIGHT = 380;
 const GROUND_SLIPPAGE = 5; // drop sprites this many pixels below ground level when drawing
 
 /******** Player Miscellaneous Stuff ********/
@@ -42,7 +42,16 @@ const PLAYER_ACCEL_JUMP = 60;
 const PLAYER_GRAVITY = 1.5;
 const PLAYER_DOUBLE_JUMP = false;
 
-/******** Enemy spawning + movement ********/
+/******** General Enemy Stuff ********/
+const ENEMY_DEATH_ACCEL = 1.5;
+
+/******** "Chevy" Enemy ********/
+const CHEVY_IMG = document.getElementById('chevy_img');
+const CHEVY_IMG_WIDTH = 100;
+const CHEVY_IMG_HEIGHT = 50;
+const CHEVY_VEL = 10;
+const CHEVY_BASE_Y = GROUND_HEIGHT + GROUND_SLIPPAGE;
+const CHEVY_SCORE = 100;
 
 /******** Helper Functions ********/
 
