@@ -85,13 +85,16 @@ class Enemy {
         this.width = width;
         this.height = height;
         this.base_y = base_y;
+        this.moving = false;
 
         this.alive = true;
         this.y = this.base_y;
         this.accelY = 0;
         this.velY = 0;
 
-        if (this.direction == 1) {
+        if (!this.moving) {
+            this.x = 0;
+        } else if (this.direction == 1) {
             this.x = -1 * this.width;
         } else if (this.direction == -1) {
             this.x = this.canvas.clientWidth;
@@ -107,6 +110,7 @@ class Enemy {
     // update x if alive
     // update y if dead
     update() {
+        if (!this.moving) return; // for debugging purposes
         if (this.alive) {
             this.x += this.speed * this.direction;
         } else {
@@ -116,11 +120,12 @@ class Enemy {
     }
 
     draw() {
-        if (this.alive) {
-            this.ctx.drawImage(this.src, this.x, this.y, this.width, this.height);
-        } else {
-            // flip upside down
-        }
+        this.ctx.drawImage(this.src, this.x, this.y, this.width, this.height);
+        
+        // if (this.alive) {
+        //     } else {
+        //     // flip upside down
+        // }
     }
 }
 
