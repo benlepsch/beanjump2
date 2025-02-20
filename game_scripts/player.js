@@ -105,6 +105,7 @@ class Player {
         // check if the player can jump
         if (this.y == this.base_y) {
             this.jumpable = true;
+            this.velY = 0;
         }
         
         // render player 
