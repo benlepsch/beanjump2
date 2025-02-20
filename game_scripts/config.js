@@ -50,7 +50,7 @@ const CHEVY_IMG = document.getElementById('chevy_img');
 const CHEVY_IMG_WIDTH = 100;
 const CHEVY_IMG_HEIGHT = 50;
 const CHEVY_VEL = 5;
-const CHEVY_BASE_Y = GROUND_HEIGHT + GROUND_SLIPPAGE;
+const CHEVY_BASE_Y = GROUND_HEIGHT - CHEVY_IMG_HEIGHT + GROUND_SLIPPAGE;
 const CHEVY_SCORE = 100;
 
 /******** Helper Functions ********/

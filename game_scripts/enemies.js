@@ -85,7 +85,7 @@ class Enemy {
         this.width = width;
         this.height = height;
         this.base_y = base_y;
-        this.moving = false;
+        this.moving = true;
 
         this.alive = true;
         this.y = this.base_y;

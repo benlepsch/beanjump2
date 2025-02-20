@@ -23,13 +23,27 @@ class Game {
   // clean up + send the score to the menu screen
   end() { }
 
-  // update positions of everything & draw frame
+  // update positions of everything 
+  // check collision
+  // draw frame
   update() {
     // call updates for existing objects
     this.player.update();
 
     // EnemyManager update checks for spawn timer
     this.em.update();
+
+    // check collisions
+    for (let e of this.em.enemies) {
+      if (colliding(e, this.player)) {
+        console.log('collision with ' + e);
+        if (this.player.y > e.y) {
+          console.log('player wins it');
+        } else {
+          console.log('player loses it');
+        }
+      }
+    }
 
     // draw the next frame
     this.draw();
