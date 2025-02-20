@@ -22,7 +22,7 @@ const GROUND_SLIPPAGE = 5; // drop sprites this many pixels below ground level w
 /******** Player Miscellaneous Stuff ********/
 const PLAYER_IMG = document.getElementById('player_img');
 const PLAYER_IMG_WIDTH = 50;
-const PLAYER_IMG_HEIGHT = 50;
+const PLAYER_IMG_HEIGHT = 40;
 
 const PLAYER_MAX_CHAIN = 30;
 
@@ -73,4 +73,36 @@ function constrain(val, min, max) {
     if (val > max) return max;
     if (val < min) return min;
     return val;
+}
+
+/**
+ * Check if two objects are colliding
+ * Objects must have x, y, width, height properties
+ * 
+ * @param {Object} obj1 
+ * @param {Object} obj2 
+ * @return bool
+ */
+function colliding(obj1, obj2) {
+    let top1 = obj1.y;
+    let top2 = obj2.y;
+
+    let bot1 = obj1.y + obj1.height;
+    let bot2 = obj2.y + obj2.height;
+
+    let left1 = obj1.x;
+    let left2 = obj2.x;
+
+    let right1 = obj1.x + obj1.width;
+    let right2 = obj2.x + obj2.width;
+
+    // obj1 on top
+    if ((obj1.bot > obj2.top) && ((obj1.left < obj2.right) || (obj1.right > obj2.left))) {
+        return true;
+    }
+    
+    // obj2 on top
+    if ((obj2.bot > obj1.top) && ((obj2.left < obj1.right) || (obj2.right > obj1.left))) {
+        return true;
+    }
 }
