@@ -61,12 +61,12 @@ class EnemyManager {
         }
 
         // todo: randomize spawn type, reset counter on spawn
-        if (this.isTime()) {
-            this.spawn(this.types[0]);
-            this.cooldown = SPAWN_FIRST_CD;            
-        } else {
-            this.cooldown --;
-        }
+        // if (this.isTime()) {
+        //     this.spawn(this.types[0]);
+        //     this.cooldown = SPAWN_FIRST_CD;            
+        // } else {
+        //     this.cooldown --;
+        // }
     }
 
     draw() {
