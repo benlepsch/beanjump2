@@ -49,7 +49,7 @@ const ENEMY_DEATH_ACCEL = 1.5;
 const PLAYER_COLLISION_SLIPPAGE = 1.5*PLAYER_MAX_VEL_Y;
 
 /******** "Chevy" Enemy ********/
-const CHEVY_IMG = 'chevy_img';
+const CHEVY_IMG = document.getElementById('chevy_img');
 const CHEVY_IMG_WIDTH = 100;
 const CHEVY_IMG_HEIGHT = 50;
 const CHEVY_VEL = 3;

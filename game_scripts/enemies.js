@@ -112,11 +112,8 @@ class Enemy {
     // update x if alive
     // update y if dead
     update() {
-        if (!this.alive) {
-            this.src = document.getElementById(CHEVY_IMG + this.direction + 'dead')
-        }
-
         if (!this.moving) return; // for debugging purposes
+
         if (this.alive) {
             this.x += this.speed * this.direction;
         } else {
@@ -126,19 +123,18 @@ class Enemy {
     }
 
     draw() {
-        this.ctx.drawImage(this.src, this.x, this.y, this.width, this.height);
-        
-        // if (this.alive) {
-        //     } else {
-        //     // flip upside down
-        // }
+        let a = (this.alive) ? 1 : -1;
+
+        this.ctx.save();
+        this.context.scale(this.direction, a); 
+        this.ctx.drawImage(this.src, this.x, this.y, this.direction*this.width, a*this.height);
+        this.ctx.restore();
     }
 }
 
 class Chevy extends Enemy {
     constructor(canvas, ctx, direction) {
-        super(canvas, ctx, document.getElementById(CHEVY_IMG + direction), 
-                CHEVY_VEL, direction, CHEVY_SCORE, CHEVY_IMG_WIDTH, 
-                CHEVY_IMG_HEIGHT, CHEVY_BASE_Y);
+        super(canvas, ctx, CHEVY_IMG, CHEVY_VEL, direction, CHEVY_SCORE, 
+                CHEVY_IMG_WIDTH, CHEVY_IMG_HEIGHT, CHEVY_BASE_Y);
     }
 }
