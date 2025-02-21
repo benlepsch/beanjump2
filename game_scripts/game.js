@@ -38,16 +38,17 @@ class Game {
     // check collisions
     for (let e of this.em.enemies) {
       if (colliding(e, this.player)) {
-        // console.log('collision with ' + e);
+        console.log('collision with ' + e);
 
         // if player is mostly above the enemy + moving down, it's a win
         let player_bottom = this.player.y + this.player.height;
         if ((player_bottom + PLAYER_COLLISION_SLIPPAGE > e.y) && (player_bottom < e.y + e.height) && (this.player.velY > 0)) {
-          // console.log('player wins it');
+          console.log('player wins it');
+          // this.em.kill()
           e.alive = false;
           this.player.doJump();
         } else {
-          // console.log('player loses it');
+          console.log('player loses it');
           this.end();
           return;
         }
