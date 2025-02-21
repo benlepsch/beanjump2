@@ -23,13 +23,12 @@ class EnemyManager {
         // modify spawn time based on # of alive enemies?
         this.enemies = [];
         this.types = ['chevy'];
-        this.cooldown = 0;
+        this.cooldown = SPAWN_FIRST_CD;
     }
 
     // check if it's time to spawn a new enemy
     isTime() {
-        // todo: this
-        return false;
+        return (this.cooldown <= 0);
     }
 
     spawn(type) {
@@ -64,6 +63,10 @@ class EnemyManager {
         // todo: randomize spawn type, reset counter on spawn
         if (this.isTime()) {
             this.spawn(this.types[0]);
+
+            
+        } else {
+            this.cooldown --;
         }
     }
 
@@ -110,6 +113,10 @@ class Enemy {
     // update x if alive
     // update y if dead
     update() {
+        if (!this.alive) {
+            this.src = document.getElementById(CHEVY_IMG + dir + 'dead')
+        }
+
         if (!this.moving) return; // for debugging purposes
         if (this.alive) {
             this.x += this.speed * this.direction;
@@ -131,6 +138,8 @@ class Enemy {
 
 class Chevy extends Enemy {
     constructor(canvas, ctx, direction) {
-        super(canvas, ctx, CHEVY_IMG, CHEVY_VEL, direction, CHEVY_SCORE, CHEVY_IMG_WIDTH, CHEVY_IMG_HEIGHT, CHEVY_BASE_Y);
+        super(canvas, ctx, document.getElementById(CHEVY_IMG + dir), 
+                CHEVY_VEL, direction, CHEVY_SCORE, CHEVY_IMG_WIDTH, 
+                CHEVY_IMG_HEIGHT, CHEVY_BASE_Y);
     }
 }
