@@ -55,9 +55,9 @@ class EnemyManager {
         for (let i = 0; i < this.enemies.length; i++) {
             this.enemies[i].update();
 
-            if (!this.enemies[i].isOnScreen()) {
-                this.remove(i);
-            }
+            // if (!this.enemies[i].isOnScreen()) {
+            //     this.remove(i);
+            // }
         }
 
         // todo: randomize spawn type, reset counter on spawn
