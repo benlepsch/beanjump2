@@ -55,18 +55,18 @@ class EnemyManager {
         for (let i = 0; i < this.enemies.length; i++) {
             this.enemies[i].update();
 
-            // if (!this.enemies[i].isOnScreen()) {
-            //     this.remove(i);
-            // }
+            if (!this.enemies[i].isOnScreen()) {
+                this.remove(i);
+            }
         }
 
         // todo: randomize spawn type, reset counter on spawn
-        // if (this.isTime()) {
-        //     this.spawn(this.types[0]);
-        //     this.cooldown = SPAWN_FIRST_CD;            
-        // } else {
-        //     this.cooldown --;
-        // }
+        if (this.isTime()) {
+            this.spawn(this.types[0]);
+            this.cooldown = SPAWN_FIRST_CD;            
+        } else {
+            this.cooldown --;
+        }
     }
 
     draw() {
@@ -106,7 +106,7 @@ class Enemy {
     }
 
     isOnScreen() {
-        return !((this.x > this.canvas.clientWidth) || (this.x + this.width < 0) || (this.y > this.canvas.clientHeight));
+        return !((this.x*this.direction > this.canvas.clientWidth) || (this.x*this.direction + this.width < 0) || (this.y > this.canvas.clientHeight));
     }
 
     // update x if alive
