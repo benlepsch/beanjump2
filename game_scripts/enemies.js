@@ -99,7 +99,7 @@ class Enemy {
         } else if (this.direction == 1) {
             this.x = -1 * this.width;
         } else if (this.direction == -1) {
-            this.x = this.canvas.clientWidth;
+            this.x = -1 * this.canvas.clientWidth;
         } else {
             console.log('error: invalid direction: ' + this.direction);
         }
@@ -115,7 +115,7 @@ class Enemy {
         if (!this.moving) return; // for debugging purposes
 
         if (this.alive) {
-            this.x += this.speed * this.direction;
+            this.x += this.speed;// * this.direction;
         } else {
             this.velY += ENEMY_DEATH_ACCEL;
             this.y += this.velY;
