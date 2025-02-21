@@ -44,11 +44,12 @@ class Game {
         let player_bottom = this.player.y + this.player.height;
         if ((player_bottom + PLAYER_COLLISION_SLIPPAGE > e.y) && (player_bottom < e.y + e.height) && (this.player.velY > 0)) {
           // console.log('player wins it');
-          // e.alive = false;
+          e.alive = false;
+          this.player.doJump();
         } else {
           // console.log('player loses it');
-          // this.end();
-          // return;
+          this.end();
+          return;
         }
       }
     }

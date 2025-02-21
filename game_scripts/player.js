@@ -61,6 +61,13 @@ class Player {
     }
 
     /**
+     * Called when the player lands on an enemy
+     */
+    doJump() {
+        this.accelY = -1*PLAYER_ACCEL_JUMP;
+    }
+
+    /**
      * Check keys currently pressed down
      * Update velocity & acceleration
      * Collision detection with the game window
