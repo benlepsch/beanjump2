@@ -126,7 +126,7 @@ class Enemy {
         let a = (this.alive) ? 1 : -1;
 
         this.ctx.save();
-        this.context.scale(this.direction, a); 
+        this.ctx.scale(this.direction, a); 
         this.ctx.drawImage(this.src, this.x, this.y, this.direction*this.width, a*this.height);
         this.ctx.restore();
     }
