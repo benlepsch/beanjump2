@@ -34,10 +34,10 @@ class Player {
         this.velX = 0;
         this.velY = 0;
         this.jumpable = true;
+        this.base_y = this.game.ground_height - this.height + GROUND_SLIPPAGE;
         
         this.x = 0;
-        this.y = this.game.ground_height - this.height + GROUND_SLIPPAGE;
-        this.base_y = this.game.ground_height - this.height + GROUND_SLIPPAGE;
+        this.y = this.base_y;
     }
     
     /**
@@ -105,6 +105,7 @@ class Player {
         // check if the player can jump
         if (this.y == this.base_y) {
             this.jumpable = true;
+            this.velY = 0;
         }
         
         // render player 
