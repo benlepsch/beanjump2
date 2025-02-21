@@ -114,7 +114,7 @@ class Enemy {
     // update y if dead
     update() {
         if (!this.alive) {
-            this.src = document.getElementById(CHEVY_IMG + dir + 'dead')
+            this.src = document.getElementById(CHEVY_IMG + this.direction + 'dead')
         }
 
         if (!this.moving) return; // for debugging purposes
@@ -138,7 +138,7 @@ class Enemy {
 
 class Chevy extends Enemy {
     constructor(canvas, ctx, direction) {
-        super(canvas, ctx, document.getElementById(CHEVY_IMG + dir), 
+        super(canvas, ctx, document.getElementById(CHEVY_IMG + direction), 
                 CHEVY_VEL, direction, CHEVY_SCORE, CHEVY_IMG_WIDTH, 
                 CHEVY_IMG_HEIGHT, CHEVY_BASE_Y);
     }
