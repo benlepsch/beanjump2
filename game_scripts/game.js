@@ -21,9 +21,7 @@ class Game {
   }
 
   // clean up + send the score to the menu screen
-  end() {
-    this.running = false; 
-  }
+  end() { }
 
   // update positions of everything 
   // check collision
@@ -43,14 +41,9 @@ class Game {
         // if player is mostly above the enemy + moving down, it's a win
         let player_bottom = this.player.y + this.player.height;
         if ((player_bottom + PLAYER_COLLISION_SLIPPAGE > e.y) && (player_bottom < e.y + e.height) && (this.player.velY > 0)) {
-          console.log('player wins it');
-          // this.em.kill()
-          e.alive = false;
-          this.player.doJump();
+          // console.log('player wins it');
         } else {
-          console.log('player loses it');
-          this.end();
-          return;
+          // console.log('player loses it');
         }
       }
     }
