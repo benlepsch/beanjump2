@@ -61,6 +61,16 @@ class Player {
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Called when the player lands on an enemy
+     */
+    bounce() {
+        this.accelY = -1*PLAYER_ACCEL_JUMP;
+    }
+
+    /**
+>>>>>>> 83d1f88 (whe)
      * Check keys currently pressed down
      * Update velocity & acceleration
      * Collision detection with the game window
