@@ -46,6 +46,8 @@ class EnemyManager {
     // kill enemies the player jumps on
     kill(idx) {
         // todo: squish + flip upside down + change alive value to false
+        this.enemies[idx].alive = false;
+        // this.enemies[idx].src =
     }
 
     // update position + check for off screen enemies
@@ -112,10 +114,6 @@ class Enemy {
     // update x if alive
     // update y if dead
     update() {
-        if (!this.alive) {
-            this.src = document.getElementById(CHEVY_IMG + this.direction + 'dead')
-        }
-
         if (!this.moving) return; // for debugging purposes
         if (this.alive) {
             this.x += this.speed * this.direction;
@@ -127,11 +125,6 @@ class Enemy {
 
     draw() {
         this.ctx.drawImage(this.src, this.x, this.y, this.width, this.height);
-        
-        // if (this.alive) {
-        //     } else {
-        //     // flip upside down
-        // }
     }
 }
 
