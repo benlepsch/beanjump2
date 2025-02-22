@@ -47,7 +47,7 @@ class EnemyManager {
     kill(idx) {
         // todo: squish + flip upside down + change alive value to false
         this.enemies[idx].alive = false;
-        // this.enemies[idx].src =
+        // this.enemies[idx].src = document.getElementById(this.enemies[idx].src.id + '_dead');
     }
 
     // update position + check for off screen enemies

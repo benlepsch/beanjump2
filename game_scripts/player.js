@@ -63,7 +63,7 @@ class Player {
     /**
      * Called when the player lands on an enemy
      */
-    doJump() {
+    bounce() {
         this.accelY = -1*PLAYER_ACCEL_JUMP;
     }
 
