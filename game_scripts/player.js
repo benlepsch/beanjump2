@@ -95,10 +95,12 @@ class Player {
             this.jumpable = false;
         }
 
-        if (this.keys[KEY_DOWN]) {
-            this.gravity = PLAYER_GRAV_INCREASE;
+        if(this.keys[KEY_JUMP]) {
+            this.gravity = PLAYER_GRAV_LESS;
+        } else if (this.keys[KEY_DOWN]) {
+            this.gravity = PLAYER_GRAV_MORE;
         } else {
-            this.gravity = PLAYER_GRAVITY;
+            this.gravity = PLAYER_GRAV_NORMAL;
         }
 
         // update position, velocity, acceleration

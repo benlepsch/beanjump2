@@ -39,8 +39,9 @@ const PLAYER_ACCEL_X = 10;
 const PLAYER_MAX_VEL_X = 25;
 const PLAYER_MAX_VEL_Y = 20;
 const PLAYER_ACCEL_JUMP = 60;
-const PLAYER_GRAVITY = 1.5;
-const PLAYER_GRAV_INCREASE = 3.0;
+const PLAYER_GRAV_LESS = 0.8;
+const PLAYER_GRAV_NORMAL = 1.5;
+const PLAYER_GRAV_MORE = 3.0;
 const PLAYER_DOUBLE_JUMP = false;
 
 /******** General Enemy Stuff ********/
