@@ -16,7 +16,7 @@ const GAME_FPS = 60;
 /******** Background Setting ********/
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 500;
-const GROUND_HEIGHT = 380;
+const GROUND_HEIGHT = 420;
 const GROUND_SLIPPAGE = 5; // drop sprites this many pixels below ground level when drawing
 
 /******** Player Miscellaneous Stuff ********/
