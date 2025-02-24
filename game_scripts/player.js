@@ -31,7 +31,7 @@ class Player {
 
         this.accelX = 0;
         this.accelY = 0;
-        this.gravity = PLAYER_GRAVITY;
+        this.gravity = PLAYER_GRAV_NORMAL;
         this.velX = 0;
         this.velY = 0;
         this.jumpable = true;
