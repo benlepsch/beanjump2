@@ -48,6 +48,8 @@ class EnemyManager {
         // todo: squish + flip upside down + change alive value to false
         this.enemies[idx].alive = false;
         // this.enemies[idx].src = document.getElementById(this.enemies[idx].src.id + '_dead');
+        this.enemies[idx].alive = false;
+        // this.enemies[idx].src = document.getElementById(this.enemies[idx].src.id + '_dead');
     }
 
     // update position + check for off screen enemies
@@ -101,22 +103,23 @@ class Enemy {
         } else if (this.direction == 1) {
             this.x = -1 * this.width;
         } else if (this.direction == -1) {
-            this.x = this.canvas.clientWidth;
+            this.x = -1 * this.canvas.clientWidth;
         } else {
             console.log('error: invalid direction: ' + this.direction);
         }
     }
 
     isOnScreen() {
-        return !((this.x > this.canvas.clientWidth) || (this.x + this.width < 0) || (this.y > this.canvas.clientHeight));
+        return !((this.x*this.direction > this.canvas.clientWidth) || (this.x*this.direction + this.width < 0) || (this.y > this.canvas.clientHeight));
     }
 
     // update x if alive
     // update y if dead
     update() {
         if (!this.moving) return; // for debugging purposes
+
         if (this.alive) {
-            this.x += this.speed * this.direction;
+            this.x += this.speed;// * this.direction;
         } else {
             this.velY += ENEMY_DEATH_ACCEL;
             this.y += this.velY;
@@ -124,14 +127,18 @@ class Enemy {
     }
 
     draw() {
-        this.ctx.drawImage(this.src, this.x, this.y, this.width, this.height);
+        let a = (this.alive) ? 1 : -1;
+
+        this.ctx.save();
+        this.ctx.scale(this.direction, a); 
+        this.ctx.drawImage(this.src, this.x, this.y, this.direction*this.width, a*this.height);
+        this.ctx.restore();
     }
 }
 
 class Chevy extends Enemy {
     constructor(canvas, ctx, direction) {
-        super(canvas, ctx, document.getElementById(CHEVY_IMG + direction), 
-                CHEVY_VEL, direction, CHEVY_SCORE, CHEVY_IMG_WIDTH, 
-                CHEVY_IMG_HEIGHT, CHEVY_BASE_Y);
+        super(canvas, ctx, CHEVY_IMG, CHEVY_VEL, direction, CHEVY_SCORE, 
+                CHEVY_IMG_WIDTH, CHEVY_IMG_HEIGHT, CHEVY_BASE_Y);
     }
 }

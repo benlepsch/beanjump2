@@ -31,7 +31,6 @@ class Player {
 
         this.accelX = 0;
         this.accelY = 0;
-        this.gravity = PLAYER_GRAV_NORMAL;
         this.velX = 0;
         this.velY = 0;
         this.jumpable = true;
@@ -95,17 +94,9 @@ class Player {
             this.jumpable = false;
         }
 
-        if(this.keys[KEY_JUMP]) {
-            this.gravity = PLAYER_GRAV_LESS;
-        } else if (this.keys[KEY_DOWN]) {
-            this.gravity = PLAYER_GRAV_MORE;
-        } else {
-            this.gravity = PLAYER_GRAV_NORMAL;
-        }
-
         // update position, velocity, acceleration
         this.velX = constrain(this.velX + this.accelX, -1*PLAYER_MAX_VEL_X, PLAYER_MAX_VEL_X);
-        this.velY = constrain(this.velY + this.accelY + this.gravity, -1*PLAYER_MAX_VEL_Y, PLAYER_MAX_VEL_Y);
+        this.velY = constrain(this.velY + this.accelY + PLAYER_GRAVITY, -1*PLAYER_MAX_VEL_Y, PLAYER_MAX_VEL_Y);
 
         // decay X velocity && acceleration values
         this.velX = (this.velX < 0) ? Math.ceil(this.velX / 2) : Math.floor(this.velX / 2);
