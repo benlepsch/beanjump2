@@ -70,7 +70,7 @@ class Game {
     this.ctx.lineTo(canvas.clientWidth, this.ground_height);
     this.ctx.stroke();
 
-    this.ctx.fillStyle = '#19e03a';
+    this.ctx.fillStyle = GROUND_COLOR;
     this.ctx.fillRect(0, this.ground_height, this.canvas.clientWidth, this.canvas.clientHeight - this.ground_height);
 
     // draw the background

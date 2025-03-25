@@ -19,6 +19,9 @@ const CANVAS_HEIGHT = 500;
 const GROUND_HEIGHT = 420;
 const GROUND_SLIPPAGE = 5; // drop sprites this many pixels below ground level when drawing
 
+const GROUND_COLOR = '#19e03a';
+const SKY_COLOR = '#19869c';
+
 /******** Player Miscellaneous Stuff ********/
 const PLAYER_IMG = document.getElementById('player_img');
 const PLAYER_IMG_WIDTH = 50;
