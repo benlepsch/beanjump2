@@ -1,8 +1,10 @@
 /**
  * Misc values that I want to be able to change easily
- * Default keybinds
- * Background image settings
- * Player movement 
+ * Main menu 
+ * General game 
+ * Background 
+ * Score display + floaty text 
+ * Player settings incl. keybinds
  * Enemy spawning + movement
  * 
  * Global helper functions
@@ -77,6 +79,9 @@ const CHEVY_IMG_HEIGHT = 50;
 const CHEVY_VEL = 3;
 const CHEVY_BASE_Y = GROUND_HEIGHT - CHEVY_IMG_HEIGHT + GROUND_SLIPPAGE + 7;
 const CHEVY_SCORE = 100;
+
+
+
 
 /******** Helper Functions ********/
 

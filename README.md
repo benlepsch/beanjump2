@@ -2,7 +2,7 @@
 the long-awaited sequel to [bean jump](https://bleps.ch/beanjump), now with an environmental awareness twist
 
 ## todo:
-- get score display working & saved to menu screen / page cookies
+- ~~get score display working & saved to menu screen~~ / page cookies
 - different enemies
 
 
