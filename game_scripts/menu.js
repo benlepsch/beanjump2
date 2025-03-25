@@ -12,7 +12,7 @@ class Menu {
     this.game = gameObject;
     this.canvas = canvas;
     this.ctx = ctx;
-    
+
     this.highScore = 0;
 
     this.mouseX = 0;
@@ -53,6 +53,7 @@ class Menu {
 
     // draw highscore + previous run
     this.ctx.fillStyle = MENU_SCORE_COLOR;
+    this.ctx.font = MENU_SCORE_FONT;
     this.ctx.fillText('Recent score: ' + window.prevScore, MENU_RECENT_SCORE_X, MENU_RECENT_SCORE_Y);
     this.ctx.fillText('High score: ' + this.highScore, MENU_HIGHSCORE_X, MENU_HIGHSCORE_Y);
 
