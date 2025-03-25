@@ -26,7 +26,7 @@ const SKY_COLOR = '#19869c';
 const SCORE_FONT = '32px serif'
 const SCORE_STROKE = 'black';
 const SCORE_X = 10;
-const SCORE_Y = 10;
+const SCORE_Y = 40;
 
 /******** Floaty Texts ********/
 const FT_FONT = '';
