@@ -40,7 +40,7 @@ class Game {
       let e = this.em.enemies[i];
 
       if (colliding(e, this.player)) {
-        // console.log('collision with ' + e);
+        console.log('collision with ' + e);
 
         // if player is mostly above the enemy + moving down, it's a win
         let player_bottom = this.player.y + this.player.height;
