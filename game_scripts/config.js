@@ -22,6 +22,16 @@ const GROUND_SLIPPAGE = 5; // drop sprites this many pixels below ground level w
 const GROUND_COLOR = '#19e03a';
 const SKY_COLOR = '#19869c';
 
+/******** Score Display ********/
+const SCORE_FONT = '32px serif'
+const SCORE_STROKE = 'black';
+const SCORE_X = 10;
+const SCORE_Y = 10;
+
+/******** Floaty Texts ********/
+const FT_FONT = '';
+const FT_FLOAT_AMT = 0.5;
+
 /******** Player Miscellaneous Stuff ********/
 const PLAYER_IMG = document.getElementById('player_img');
 const PLAYER_IMG_WIDTH = 50;

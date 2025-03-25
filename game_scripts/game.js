@@ -87,5 +87,8 @@ class Game {
     this.player.draw();
 
     // draw score (top left)
+    this.ctx.font = SCORE_FONT;
+    this.ctx.strokeStyle = SCORE_STROKE;
+    this.ctx.strokeText('Score: ' + this.score, SCORE_X, SCORE_Y);
   }
 }
