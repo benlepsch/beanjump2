@@ -8,10 +8,17 @@
  * Global helper functions
  */
 
+/******** Score Display (in menu) ********/
+const MENU_SCORE_FONT = '26px serif';
+const MENU_SCORE_COLOR = 'black';
+const MENU_RECENT_SCORE_X = 278;
+const MENU_RECENT_SCORE_Y = 322;
+
+const MENU_HIGHSCORE_X = 270;
+const MENU_HIGHSCORE_Y = 407;
 
 
 const GAME_FPS = 60;
-
 
 /******** Background Setting ********/
 const CANVAS_WIDTH = 800;
@@ -22,7 +29,7 @@ const GROUND_SLIPPAGE = 5; // drop sprites this many pixels below ground level w
 const GROUND_COLOR = '#19e03a';
 const SKY_COLOR = '#19869c';
 
-/******** Score Display ********/
+/******** Score Display (in game) ********/
 const SCORE_FONT = '32px serif'
 const SCORE_STROKE = 'black';
 const SCORE_X = 10;

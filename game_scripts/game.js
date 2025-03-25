@@ -23,6 +23,7 @@ class Game {
 
   // clean up + send the score to the menu screen
   end() {
+    window.prevScore = this.score;
     this.running = false;
   }
 
@@ -51,7 +52,7 @@ class Game {
           this.score += e.score * this.player.chain;
           this.player.bounce();
           this.em.kill(i);
-          console.log('player score: ' + this.score + '\tchain: ' + this.player.chain);
+          // console.log('player score: ' + this.score + '\tchain: ' + this.player.chain);
         } else {
           // gg
           this.end();

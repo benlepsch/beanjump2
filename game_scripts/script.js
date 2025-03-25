@@ -15,7 +15,7 @@ canvas.height = CANVAS_HEIGHT;
 const ctx = canvas.getContext('2d');
 
 const game = new Game(canvas, ctx);
-const menu = new Menu(game);
+const menu = new Menu(game, canvas, ctx);
 
 
 /********** Event Listeners ***********/

@@ -8,9 +8,12 @@
  */
 
 class Menu {
-  constructor(gameObject) {
+  constructor(gameObject, canvas, ctx) {
     this.game = gameObject;
-    this.recentScore = 0;
+    this.canvas = canvas;
+    this.ctx = ctx;
+    
+    this.highScore = 0;
 
     this.mouseX = 0;
     this.mouseY = 0;
@@ -40,7 +43,18 @@ class Menu {
   // render menu
   draw() {
     // draw background image
-    this.game.ctx.drawImage(this.img, 0, 0);
+    this.ctx.drawImage(this.img, 0, 0);
+
+    // check for recent / high score
+    if (window.prevScore > this.highScore) {
+      this.highScore = window.prevScore;
+      // TODO: push to cookie
+    }
+
+    // draw highscore + previous run
+    this.ctx.fillStyle = MENU_SCORE_COLOR;
+    this.ctx.fillText('Recent score: ' + window.prevScore, MENU_RECENT_SCORE_X, MENU_RECENT_SCORE_Y);
+    this.ctx.fillText('High score: ' + this.highScore, MENU_HIGHSCORE_X, MENU_HIGHSCORE_Y);
 
     // highlight buttons if the mouse is over them
     if (this.play_button.mouseOver(this.mouseX, this.mouseY)) {

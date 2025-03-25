@@ -35,7 +35,7 @@ class Player {
         this.jumpable = true;
         this.base_y = this.game.ground_height - this.height + GROUND_SLIPPAGE;
         
-        this.x = 0;
+        this.x = this.canvas.clientWidth / 2 - this.width / 2;
         this.y = this.base_y;
     }
     
