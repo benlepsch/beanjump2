@@ -16,6 +16,7 @@ class Game {
   // start the game
   start() {
     this.running = true;
+    this.score = 0;
     this.player = new Player(this, this.canvas, this.ctx);
     this.em = new EnemyManager(this.canvas, this.ctx);
   }
@@ -47,8 +48,10 @@ class Game {
         if ((player_bottom + PLAYER_COLLISION_SLIPPAGE > e.y) && (player_bottom < e.y + e.height) && (this.player.velY > 0)) {
           // jump + add score / chain
           // "kill" enemy
+          this.score += e.score * this.player.chain;
           this.player.bounce();
-          this.em.kill(i)
+          this.em.kill(i);
+          console.log('player score: ' + this.score + '\tchain: ' + this.player.chain);
         } else {
           // gg
           this.end();
@@ -82,5 +85,7 @@ class Game {
 
     // draw player 
     this.player.draw();
+
+    // draw score (top left)
   }
 }

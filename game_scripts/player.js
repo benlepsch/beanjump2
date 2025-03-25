@@ -25,9 +25,8 @@ class Player {
         this.width = PLAYER_IMG_WIDTH;
         this.height = PLAYER_IMG_HEIGHT;
 
-        this.score = 0;
-        this.chain = 0;
         this.keys = [];
+        this.chain = 1;
 
         this.accelX = 0;
         this.accelY = 0;
@@ -65,6 +64,8 @@ class Player {
      */
     bounce() {
         this.accelY = -1*PLAYER_ACCEL_JUMP;
+        if (this.chain < PLAYER_MAX_CHAIN)
+            this.chain ++;
     }
 
     /**
@@ -113,6 +114,9 @@ class Player {
         if (this.y == this.base_y) {
             this.jumpable = true;
             this.velY = 0;
+            
+            // also use this to reset the chain counter
+            this.chain = 1;
         }
         
         // render player 
