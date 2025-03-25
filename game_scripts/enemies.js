@@ -138,7 +138,7 @@ class Enemy {
 
 class Chevy extends Enemy {
     constructor(canvas, ctx, direction) {
-        super(canvas, ctx, CHEVY_IMG, CHEVY_VEL, direction, CHEVY_SCORE, 
+        super(canvas, ctx, document.getElementById(CHEVY_IMG + direction), CHEVY_VEL, direction, CHEVY_SCORE, 
                 CHEVY_IMG_WIDTH, CHEVY_IMG_HEIGHT, CHEVY_BASE_Y);
     }
 }
