@@ -1,6 +1,9 @@
 /**
  * Game object
+ * 
+ * FloatyText object
  */
+
 class Game {
   constructor(canvas, ctx) {
     this.canvas = canvas;
@@ -19,6 +22,7 @@ class Game {
     this.score = 0;
     this.player = new Player(this, this.canvas, this.ctx);
     this.em = new EnemyManager(this.canvas, this.ctx);
+    this.floatyTexts = [];
   }
 
   // clean up + send the score to the menu screen
@@ -37,6 +41,11 @@ class Game {
     // EnemyManager update checks for spawn timer
     this.em.update();
 
+    // floaty texts float upwards after kills
+    for (let ft of this.floatyTexts) {
+      ft.update();
+    }
+
     // check collisions
     for (let i = 0; i < this.em.enemies.length; i++) {
       let e = this.em.enemies[i];
@@ -50,9 +59,20 @@ class Game {
           // jump + add score / chain
           // "kill" enemy
           this.score += e.score * this.player.chain;
+
+          // create new floaty text
+          let ftstr = '';
+          if (this.player.chain == 1) {
+            ftstr = e.score;
+          } else {
+            ftstr = this.player.chain + ' chain\n' + e.score + 'x' + this.player.chain;
+          }
+          this.floatyTexts.push(new FloatyText(ftstr, this.canvas, this.ctx, this.player.x, this.player.y));
+          
+          // console.log('player score: ' + this.score + '\tchain: ' + this.player.chain);
+          
           this.player.bounce();
           this.em.kill(i);
-          // console.log('player score: ' + this.score + '\tchain: ' + this.player.chain);
         } else {
           // gg
           this.end();
@@ -91,5 +111,37 @@ class Game {
     this.ctx.font = SCORE_FONT;
     this.ctx.strokeStyle = SCORE_STROKE;
     this.ctx.strokeText('Score: ' + this.score, SCORE_X, SCORE_Y);
+  }
+}
+
+class FloatyText {
+  constructor(txt, canvas, ctx, x, y) {
+    this.text = txt;
+    this.canvas = canvas;
+    this.ctx = ctx;
+
+    this.x = x;
+    this.y = y;
+
+    this.alpha = 1;
+  }
+
+  done() {
+    return (this.alpha <= 0);
+  }
+
+  update() {
+    this.alpha -= FT_MINUS_ALPHA;
+    this.x -= FT_MINUS_X;
+
+    this.ctx.globalAlpha = this.alpha;
+    this.draw();
+    this.ctx.globalAlpha = 1;
+  }
+
+  draw() {
+    this.ctx.font = FT_FONT;
+    this.ctx.fillStyle = FT_COLOR;
+    this.ctx.fillText(this.text, this.x, this.y);
   }
 }

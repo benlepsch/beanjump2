@@ -36,8 +36,10 @@ const SCORE_X = 10;
 const SCORE_Y = 40;
 
 /******** Floaty Texts ********/
-const FT_FONT = '';
-const FT_FLOAT_AMT = 0.5;
+const FT_FONT = '20px sans-serif';
+const FT_COLOR = 'yellow';
+const FT_MINUS_X = 0.5;
+const FT_MINUS_ALPHA = 0.01;
 
 /******** Player Miscellaneous Stuff ********/
 const PLAYER_IMG = document.getElementById('player_img');

@@ -48,10 +48,8 @@ class EnemyManager {
         // todo: squish + flip upside down + change alive value to false
         this.enemies[idx].alive = false;
         // this.enemies[idx].src = document.getElementById(this.enemies[idx].src.id + '_dead');
-        this.enemies[idx].alive = false;
-        // this.enemies[idx].src = document.getElementById(this.enemies[idx].src.id + '_dead');
     }
-
+    
     // update position + check for off screen enemies
     // check if it's time to spawn a new enemy
     // collision detection handled in the game object
