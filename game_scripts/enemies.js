@@ -103,14 +103,14 @@ class Enemy {
         } else if (this.direction == 1) {
             this.x = -1 * this.width;
         } else if (this.direction == -1) {
-            this.x = -1 * this.canvas.clientWidth;
+            this.x = this.canvas.clientWidth;
         } else {
             console.log('error: invalid direction: ' + this.direction);
         }
     }
 
     isOnScreen() {
-        return !((this.x*this.direction > this.canvas.clientWidth) || (this.x*this.direction + this.width < 0) || (this.y > this.canvas.clientHeight));
+        return !((this.x > this.canvas.clientWidth) || (this.x + this.width < 0) || (this.y > this.canvas.clientHeight));
     }
 
     // update x if alive
@@ -119,7 +119,7 @@ class Enemy {
         if (!this.moving) return; // for debugging purposes
 
         if (this.alive) {
-            this.x += this.speed;// * this.direction;
+            this.x += this.speed * this.direction;
         } else {
             this.velY += ENEMY_DEATH_ACCEL;
             this.y += this.velY;
@@ -129,10 +129,7 @@ class Enemy {
     draw() {
         let a = (this.alive) ? 1 : -1;
 
-        this.ctx.save();
-        this.ctx.scale(this.direction, a); 
-        this.ctx.drawImage(this.src, this.x, this.y, this.direction*this.width, a*this.height);
-        this.ctx.restore();
+        this.ctx.drawImage(this.src, this.x, this.y, this.width, a*this.height);
     }
 }
 
