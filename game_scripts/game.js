@@ -40,7 +40,7 @@ class Game {
       let e = this.em.enemies[i];
 
       if (colliding(e, this.player)) {
-        console.log('collision with ' + e);
+        // console.log('collision with ' + e);
 
         // if player is mostly above the enemy + moving down, it's a win
         let player_bottom = this.player.y + this.player.height;
@@ -73,7 +73,9 @@ class Game {
     this.ctx.fillStyle = GROUND_COLOR;
     this.ctx.fillRect(0, this.ground_height, this.canvas.clientWidth, this.canvas.clientHeight - this.ground_height);
 
-    // draw the background
+    // draw the sky
+    this.ctx.fillStyle = SKY_COLOR;
+    this.ctx.fillRect(0, 0, this.canvas.clientWidth, this.ground_height);
 
     // draw enemies
     this.em.draw();
