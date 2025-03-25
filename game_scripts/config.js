@@ -9,13 +9,13 @@
  */
 
 /******** Score Display (in menu) ********/
-const MENU_SCORE_FONT = '48px serif';
+const MENU_SCORE_FONT = '26px serif';
 const MENU_SCORE_COLOR = 'black';
 const MENU_RECENT_SCORE_X = 278;
-const MENU_RECENT_SCORE_Y = 322;
+const MENU_RECENT_SCORE_Y = 338;
 
-const MENU_HIGHSCORE_X = 270;
-const MENU_HIGHSCORE_Y = 407;
+const MENU_HIGHSCORE_X = 269;
+const MENU_HIGHSCORE_Y = 420;
 
 
 const GAME_FPS = 60;
