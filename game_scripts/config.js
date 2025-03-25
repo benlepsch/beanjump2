@@ -9,7 +9,7 @@
  */
 
 /******** Score Display (in menu) ********/
-const MENU_SCORE_FONT = '26px serif';
+const MENU_SCORE_FONT = '48px serif';
 const MENU_SCORE_COLOR = 'black';
 const MENU_RECENT_SCORE_X = 278;
 const MENU_RECENT_SCORE_Y = 322;
