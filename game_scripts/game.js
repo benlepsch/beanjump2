@@ -115,12 +115,14 @@ class Game {
     this.ctx.font = SCORE_FONT;
     this.ctx.fillStyle = SCORE_COLOR;
     this.ctx.strokeStyle = SCORE_STROKE;
+    this.ctx.fillText('Score: ' + this.score, SCORE_X, SCORE_Y)
     this.ctx.strokeText('Score: ' + this.score, SCORE_X, SCORE_Y);
   
     // draw chain (also top left)
     this.ctx.font = CHAIN_FONT;
     this.ctx.fillSyle = CHAIN_COLOR;
-    this.ctx.strokeStyle = CHAIN_STROKE;
+    this.ctx.strokeStyle = CHAIN_STROKE;    
+    this.ctx.fillText('Chain: ' + this.player.chain, CHAIN_X, CHAIN_Y);
     this.ctx.strokeText('Chain: ' + this.player.chain, CHAIN_X, CHAIN_Y);
   }
 }
