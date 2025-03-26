@@ -61,7 +61,7 @@ const KEY_PAUSE = 32;     // space
 /******** Player Movement ********/
 const PLAYER_ACCEL_X = 8;
 const PLAYER_MAX_VEL_X = 22;
-const PLAYER_MAX_VEL_Y = 18;
+const PLAYER_MAX_VEL_Y = 19;
 const PLAYER_ACCEL_JUMP = 55;
 const PLAYER_GRAVITY = 1.5;
 const PLAYER_DOUBLE_JUMP = false;

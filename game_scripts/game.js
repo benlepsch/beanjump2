@@ -60,7 +60,7 @@ class Game {
           if (this.player.chain == 1) {
             ftstr = e.score;
           } else {
-            ftstr = this.player.chain + ' chain\n' + e.score + 'x' + this.player.chain;
+            ftstr = e.score + 'x' + this.player.chain;
           }
           this.floatyTexts.push(new FloatyText(ftstr, this.canvas, this.ctx, this.player.x, this.player.y));
           
