@@ -59,15 +59,15 @@ const KEY_DOWN = 83;      // s
 const KEY_PAUSE = 32;     // space
 
 /******** Player Movement ********/
-const PLAYER_ACCEL_X = 10;
-const PLAYER_MAX_VEL_X = 25;
-const PLAYER_MAX_VEL_Y = 20;
+const PLAYER_ACCEL_X = 8;
+const PLAYER_MAX_VEL_X = 22;
+const PLAYER_MAX_VEL_Y = 18;
 const PLAYER_ACCEL_JUMP = 55;
 const PLAYER_GRAVITY = 1.5;
 const PLAYER_DOUBLE_JUMP = false;
 
 /******** General Enemy Stuff ********/
-const SPAWN_FIRST_CD = GAME_FPS*5;
+const SPAWN_FIRST_CD = GAME_FPS*2;
 
 const ENEMY_DEATH_ACCEL = 1.5;
 const PLAYER_COLLISION_SLIPPAGE = 1.5*PLAYER_MAX_VEL_Y;
