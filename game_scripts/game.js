@@ -107,7 +107,7 @@ class Game {
       if (ft.done()) {
         this.floatyTexts.splice(i, 1);
       }
-      console.log('gonna update this text');
+      // console.log('gonna update this text');
       ft.update();
     }
 
@@ -136,8 +136,8 @@ class FloatyText {
 
   update() {
     this.alpha -= FT_MINUS_ALPHA;
-    this.x -= FT_MINUS_X;
-    console.log('big update: alpha: ' + this.alpha + '\tx: ' + this.x);
+    this.y -= FT_MINUS_Y;
+    // console.log('big update: alpha: ' + this.alpha + '\tx: ' + this.x);
 
     this.ctx.globalAlpha = this.alpha;
     this.draw();
@@ -145,7 +145,7 @@ class FloatyText {
   }
 
   draw() {
-    console.log('drawing ft');
+    // console.log('drawing ft');
     this.ctx.font = FT_FONT;
     this.ctx.fillStyle = FT_COLOR;
     this.ctx.fillText(this.text, this.x, this.y);
