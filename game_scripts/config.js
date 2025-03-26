@@ -32,10 +32,18 @@ const GROUND_COLOR = '#19e03a';
 const SKY_COLOR = '#19869c';
 
 /******** Score Display (in game) ********/
-const SCORE_FONT = '32px serif'
+const SCORE_FONT = '28px serif';
+const SCORE_COLOR = 'white';
 const SCORE_STROKE = 'black';
 const SCORE_X = 10;
-const SCORE_Y = 40;
+const SCORE_Y = 35;
+
+/******** Chain Display ********/
+const CHAIN_FONT = '28px serif';
+const CHAIN_COLOR = SCORE_COLOR;
+const CHAIN_STROKE = SCORE_STROKE;
+const CHAIN_X = SCORE_X;
+const CHAIN_Y = SCORE_Y + 30;
 
 /******** Floaty Texts ********/
 const FT_FONT = '20px sans-serif';
