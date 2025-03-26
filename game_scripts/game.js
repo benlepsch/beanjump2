@@ -41,11 +41,6 @@ class Game {
     // EnemyManager update checks for spawn timer
     this.em.update();
 
-    // floaty texts float upwards after kills
-    for (let ft of this.floatyTexts) {
-      ft.update();
-    }
-
     // check collisions
     for (let i = 0; i < this.em.enemies.length; i++) {
       let e = this.em.enemies[i];
@@ -106,6 +101,11 @@ class Game {
 
     // draw player 
     this.player.draw();
+
+    // floaty texts float upwards after kills
+    for (let ft of this.floatyTexts) {
+      ft.update();
+    }
 
     // draw score (top left)
     this.ctx.font = SCORE_FONT;
