@@ -76,6 +76,9 @@ const PLAYER_DOUBLE_JUMP = false;
 
 /******** General Enemy Stuff ********/
 const SPAWN_FIRST_CD = GAME_FPS*2;
+const EM_FIRST_UPPER_TICK = 150;
+const EM_FIRST_LOWER_TICK = 30;
+const EM_ENEMIES_CD = 5;
 
 const ENEMY_DEATH_ACCEL = 1.5;
 const PLAYER_COLLISION_SLIPPAGE = 1.5*PLAYER_MAX_VEL_Y;

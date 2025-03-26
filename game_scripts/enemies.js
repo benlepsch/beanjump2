@@ -24,18 +24,32 @@ class EnemyManager {
         this.enemies = [];
         this.types = ['chevy'];
         this.cooldown = SPAWN_FIRST_CD;
-    }
 
-    // check if it's time to spawn a new enemy
-    isTime() {
-        return (this.cooldown <= 0);
+        this.upperTick = EM_FIRST_UPPER_TICK;
+        this.lowerTick = EM_FIRST_LOWER_TICK;
+        this.last = new Date().getTime();
     }
-
+    
+    // spawn enemy + reset cooldown
     spawn(type) {
-        let dir = (Math.random() < 0.55) ? -1 : 1;
+        let current = new Date().getTime();
+        let dt = Math.round((current - this.last)/1000);
+        this.last = current;
+
+        // randomize direction + enemy type
+        let dir = (Math.random() < 0.5) ? -1 : 1;
         if (type == 'chevy') {
             this.enemies.push(new Chevy(this.canvas, this.ctx, dir));
         }
+
+        // set cooldown
+        if (this.upperTick - 2*dt < 30) {
+            this.upperTick = 40;
+        } else {
+            this.upperTick -= 2*dt;
+        }
+
+        this.cooldown = Math.round(Math.random() * this.upperTick) + this.lowerTick + EM_ENEMIES_CD*this.enemies.length;
     }
 
     // remove enemies that go off screen
@@ -63,9 +77,8 @@ class EnemyManager {
         }
 
         // todo: randomize spawn type, reset counter on spawn
-        if (this.isTime()) {
-            this.spawn(this.types[0]);
-            this.cooldown = SPAWN_FIRST_CD;            
+        if (this.cooldown <= 0) {
+            this.spawn(this.types[0]);      
         } else {
             this.cooldown --;
         }
