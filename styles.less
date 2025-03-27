@@ -1,0 +1,27 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+canvas {
+    margin: auto;
+    border: 1px solid black;
+}
+
+@media only screen and (max-width: 768px) {
+    canvas {
+        display: none;
+    }
+    h2 {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    canvas {
+        display: block;
+    }
+    h2 {
+        display: none;
+    }
+}
